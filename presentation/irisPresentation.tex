@@ -36,7 +36,7 @@
 %\usetheme{Dresden}
 %\usetheme{Frankfurt}
 %\usetheme{Goettingen}
-%\usetheme{Hannover}
+%\usetheme[hideothersubsections]{Hannover}
 %\usetheme{Ilmenau}
 %\usetheme{JuanLesPins}
 %\usetheme{Luebeck}
@@ -56,7 +56,7 @@
 % changes the colors of your current slide theme.
 
 %\usecolortheme{albatross}
-\usecolortheme{beaver}
+%\usecolortheme{beaver}
 %\usecolortheme{beetle}
 %\usecolortheme{crane}
 %\usecolortheme{dolphin}
@@ -69,6 +69,7 @@
 %\usecolortheme{seahorse}
 %\usecolortheme{whale}
 %\usecolortheme{wolverine}
+\usecolortheme[named=violet]{structure}
 
 %\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
 %\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
@@ -107,6 +108,8 @@
 \usepgfplotslibrary{groupplots}
 \usetikzlibrary{pgfplots.groupplots}
 \usepackage{xcolor} % For colors
+\usepackage{tikz}
+
 
 \pgfplotsset{compat=1.10}
 
@@ -126,16 +129,22 @@
 \medskip
 \textit{\{achatsat, mkosm\}@it.teithe.gr} % Your email address
 }
+\titlegraphic{\includegraphics[height=2cm]{images/irisSetosa.jpg} \includegraphics[height=2cm]{images/irisVersicolor.jpg} \includegraphics[height=2cm]{images/irisVirginica.jpg}}
 \date{23 Μαΐου 2014} % Date, can be changed to a custom date
-
+%\logo{\includegraphics[height=0.8cm]{images/itLogoWhiteBg.pdf}}
 \newfontfamily\greekfont[Script=Greek]{Linux Libertine O} % work-around για bug του polyglossia
 \setmainfont[Kerning=On,Mapping=tex-text]{Linux Libertine O} % roman font
 
 \begin{document}
 
-\begin{frame}
+\begin{frame}[plain]
 \titlepage % Print the title page as the first slide
 \end{frame}
+
+\addtobeamertemplate{frametitle}{}{%
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west,yshift=2pt] at (current page.north west) {\includegraphics[height=0.8cm]{images/itLogoWhiteBg.pdf}};
+\end{tikzpicture}}
 
 %\begin{frame}
 %\frametitle{Overview} % Table of contents slide, comment this block out to remove it
@@ -340,11 +349,11 @@ bullets
 Τι είναι;
 \end{frame}
 
-\subsubsection{setSeed.m}
-\begin{frame}
-\frametitle{setSeed.m}
-Τι είναι;
-\end{frame}
+%\subsubsection{setSeed.m}
+%\begin{frame}
+%\frametitle{setSeed.m}
+%Τι είναι;
+%\end{frame}
 
 \subsubsection{irisClustering.m}
 \begin{frame}
