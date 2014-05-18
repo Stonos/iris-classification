@@ -1,0 +1,376 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[xetex,mathserif,serif,14pt]{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamercolor{frametitle}{fg=red,bg=red!20} % Redefine color of frame title box
+%\setbeamercolor*{title}{bg=red,fg=white} % Redefine color of presentation title box
+%\setbeamercolor{block title}{fg=black,bg=black!20} % Redefine color of block title %bg=background, fg=foreground
+%\setbeamercolor{block body}{fg=black,bg=red!15} % Redefine color of block body
+
+\makeatletter
+\setbeamertemplate{footline} % Redefine footer (mainly width of boxes)
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.41\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor~~(\insertshortinstitute)
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.34\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{polyglossia} % χρησιμοποιείται για καλύτερη υποστήριξη των Ελληνικών
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{pgfplots} % For drawing the queries
+\usepgfplotslibrary{groupplots}
+\usetikzlibrary{pgfplots.groupplots}
+\usepackage{xcolor} % For colors
+
+\pgfplotsset{compat=1.10}
+
+\setmainlanguage[numerals=arabic]{greek} % κύρια γλώσσα
+\setotherlanguages{english} % δευτερεύουσα γλώσσα
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Κατηγοριοποίηση Κρίνων]{Κατηγοριοποίηση Κρίνων με Χρήση Νευροασαφούς Μοντέλου} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author[Χατσατριάν, Κοσματόπουλος]{Άνι Χατσατριάν, Μιχάλης Κοσματόπουλος} % Your name
+\institute[ΑΤΕΙΘ] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+Αλεξάνδρειο Τεχνολογικό Εκπαιδευτικό Ίδρυμα Θεσσαλονίκης \\ % Your institution for the title page
+\medskip
+\textit{\{achatsat, mkosm\}@it.teithe.gr} % Your email address
+}
+\date{23 Μαΐου 2014} % Date, can be changed to a custom date
+
+\newfontfamily\greekfont[Script=Greek]{Linux Libertine O} % work-around για bug του polyglossia
+\setmainfont[Kerning=On,Mapping=tex-text]{Linux Libertine O} % roman font
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+%\begin{frame}
+%\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+%\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+%\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\section{Εισαγωγή} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Εισαγωγή}
+Σκοπός είναι της εργασίας είναι η κατηγοριοποίηση κρίνων με τη χρήση νευροασαφούς μοντέλου.
+
+%Το πρόβλημα που είχαμε να αντιμετωπίσουμε ήταν να διακρίνουμε (no pun intended) τα 3 διαφορετικά είδη κρίνων. Για την επίλυση του συγκεκριμένου προβλήματος χρησιμοποιήσαμε ένα μοντέλο που συνδυάζει τα νευρωνικά δίκτυα με τα ασαφή συστήματα.
+\end{frame}
+
+%------------------------------------------------
+
+\section{Νευρωνικά Δίκτυα} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
+
+\subsection{Τι είναι ένα νευρωνικό δίκτυο;}
+
+\begin{frame}
+\frametitle{Τι είναι ένα νευρωνικό δίκτυο;}
+ασδασδ
+
+\end{frame}
+
+%------------------------------------------------
+
+\subsection{Πλεονεκτήματα}
+
+\begin{frame}
+\frametitle{Πλεονεκτήματα χρήσης Ν.Δ.}
+bullets
+\end{frame}
+
+%------------------------------------------------
+
+\section{Ασαφή Συστήματα}
+
+\subsection{Ασαφή Σύνολα}
+
+\begin{frame}
+\frametitle{Ασαφή Σύνολα}
+Τι είναι;
+\end{frame}
+
+\subsection{Αποσαφοποίηση}
+
+\begin{frame}
+\frametitle{Αποσαφοποίηση}
+Τι είναι;
+\end{frame}
+
+\subsection{Συναρτήσεις Συμμετοχής}
+
+\begin{frame}
+\frametitle{Συναρτήσεις Συμμετοχής}
+Τι είναι;
+\end{frame}
+
+\subsection{Φράκτες}
+
+\begin{frame}
+\frametitle{Φράκτες}
+Τι είναι;
+\end{frame}
+
+\subsection{Πράξεις Συνόλων}
+
+\begin{frame}
+\frametitle{Πράξεις Συνόλων}
+Τι είναι;
+\end{frame}
+
+%------------------------------------------------
+
+\section{Ασαφή Συστήματα Συμπερασμού}
+
+\begin{frame}
+\frametitle{Ασαφή Συστήματα Συμπερασμού}
+Τι είναι;
+\end{frame}
+
+\subsection{Δομή ενός ασαφούς συστήματος}
+
+\begin{frame}
+\frametitle{Δομή ενός ασαφούς συστήματος}
+Ποια είναι;
+\end{frame}
+
+\subsection{Mamdani}
+
+\begin{frame}
+\frametitle{Mamdani}
+Τι είναι;
+\end{frame}
+
+\subsection{Sugeno}
+
+\begin{frame}
+\frametitle{Sugeno}
+Τι είναι;
+\end{frame}
+
+%------------------------------------------------
+
+\section{Συσταδοποίηση}
+
+\subsection{Ορισμός}
+
+\begin{frame}
+\frametitle{Ορισμός}
+Τι είναι;
+\end{frame}
+
+\subsection{Στάδια}
+
+\begin{frame}
+\frametitle{Στάδια}
+Τι είναι;
+\end{frame}
+
+\subsection{Αλγόριθμοι}
+
+\begin{frame}
+\frametitle{Αλγόριθμοι}
+Τι είναι;
+\end{frame}
+
+%------------------------------------------------
+
+\section{Ομαδοποίηση}
+
+\begin{frame}
+\frametitle{Ορισμός}
+Τι είναι;
+\end{frame}
+
+%------------------------------------------------
+
+\section{Παρουσίαση του προβλήματος}
+
+\begin{frame}
+\frametitle{Παρουσίαση του προβλήματος}
+Τι είναι;
+\end{frame}
+
+%------------------------------------------------
+
+\section{Επίλυση του προβλήματος}
+
+\subsection{Φόρτωμα Δεδομένων}
+
+\begin{frame}
+\frametitle{Φόρτωμα Δεδομένων}
+Τι είναι;
+\end{frame}
+
+\subsection{Επίλυση με χρήση γραφικού περιβάλλοντος}
+
+\subsubsection{Fuzzy Toolbox}
+\begin{frame}
+\frametitle{Fuzzy Toolbox}
+Τι είναι;
+\end{frame}
+
+\subsubsection{Anfis Editor}
+\begin{frame}
+\frametitle{Anfis Editor}
+Τι είναι;
+\end{frame}
+
+\subsubsection{Grid Partition}
+\begin{frame}
+\frametitle{Grid Partition}
+Τι είναι;
+\end{frame}
+
+\subsubsection{Subtractive Clustering}
+\begin{frame}
+\frametitle{Subtractive Clustering}
+Τι είναι;
+\end{frame}
+
+\subsection{Επίλυση με χρήση κώδικα}
+
+\begin{frame}
+\frametitle{Ανάγκη χρήσης κώδικα}
+ασδασδ
+\end{frame}
+
+\subsubsection{getIris.m}
+\begin{frame}
+\frametitle{getIris.m}
+Τι είναι;
+\end{frame}
+
+\subsubsection{setSeed.m}
+\begin{frame}
+\frametitle{setSeed.m}
+Τι είναι;
+\end{frame}
+
+\subsubsection{irisClustering.m}
+\begin{frame}
+\frametitle{irisClustering.m}
+Τι είναι;
+\end{frame}
+
+\subsubsection{runTests.m}
+\begin{frame}
+\frametitle{runTests.m}
+Τι είναι;
+\end{frame}
+
+\subsection{Αποτελέσματα}
+\begin{frame}
+\frametitle{Αποτελέσματα}
+Τι είναι;
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+
+\begin{frame}
+
+\Huge{\centerline{Thank You}}
+\Large{\centerline{Questions?}}
+\end{frame}
+
+\end{document} 
