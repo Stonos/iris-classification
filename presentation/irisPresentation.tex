@@ -110,7 +110,7 @@
 \usepackage{xcolor} % For colors
 \usepackage{tikz}
 \usepackage{unicode-math}
-
+\usepackage[framed,numbered]{matlab-prettifier}
 \pgfplotsset{compat=1.10}
 
 \setmainlanguage[numerals=arabic]{greek} % κύρια γλώσσα
@@ -132,8 +132,8 @@
 \titlegraphic{\includegraphics[height=2cm]{images/irisSetosa.jpg} \includegraphics[height=2cm]{images/irisVersicolor.jpg} \includegraphics[height=2cm]{images/irisVirginica.jpg}}
 \date{23 Μαΐου 2014} % Date, can be changed to a custom date
 %\logo{\includegraphics[height=0.8cm]{images/itLogoWhiteBg.pdf}}
-\newfontfamily\greekfont[Script=Greek]{Linux Libertine O} % work-around για bug του polyglossia
-\setmainfont[Kerning=On,Mapping=tex-text]{Linux Libertine O} % roman font
+\newfontfamily\greekfont[Script=Greek]{Linux Libertine G} % work-around για bug του polyglossia
+\setmainfont[Kerning=On,Mapping=tex-text]{Linux Libertine G} % roman font
 %\setmathfont{Latin Modern Math}
 
 \renewcommand{\arraystretch}{1.3} % μεγαλύτερο διάστημα ανάμεσα στις γραμμές πινάκων
@@ -179,7 +179,12 @@
 
 \begin{frame}
 \frametitle{Τι είναι ένα νευρωνικό δίκτυο;}
-ασδασδ
+\begin{itemize}
+  \item Είναι ένα σύστημα επεξεργασίας πληροφοριών.\pause
+  \item Τα στοιχεία που αποτελούν ένα νευρωνικό δίκτυο ονομάζονται νευρώνες.\pause
+  \item Κάθε νευρώνας είναι συνδεδεμένος με άλλους νευρώνες μέσω  καθοδηγούμενων  συνδέσεων.\pause
+  \item  Η κάθε σύνδεση έχει το δικό της σχετικό βάρος.
+\end{itemize}
 
 \end{frame}
 
@@ -188,8 +193,15 @@
 \subsection{Πλεονεκτήματα}
 
 \begin{frame}
-\frametitle{Πλεονεκτήματα χρήσης Ν.Δ.}
-bullets
+\frametitle{Πλεονεκτήματα χρήσης ν.δ.}
+\begin{itemize}
+  \item Παράλληλα κατανεμημένη δομή\pause
+  \item Ικανότητα γενίκευσης\pause
+  \item Προσαρμοστικότητα\pause
+  \item Ανοχή στα σφάλματα\pause
+  \item Αντιστοίχηση εισόδων/εξόδων\pause
+  \item Άμεση απόκριση
+\end{itemize}
 \end{frame}
 
 %------------------------------------------------
@@ -370,25 +382,37 @@ Fight!
 
 \section{Συσταδοποίηση}
 
-\subsection{Ορισμός}
+\subsection{Ορισμός Συσταδοποίησης}
 
 \begin{frame}
-\frametitle{Ορισμός}
-Τι είναι;
+\frametitle{Ορισμός Συσταδοποίησης}
+\begin{itemize}
+  \item Διαδικασία ομαδοποίησης αντικειμένων με κάποιο κοινό χαρακτηριστικό.\pause
+  \item Χαρακτηρίζεται και ως μάθηση χωρίς επίβλεψη.
+\end{itemize}
 \end{frame}
 
-\subsection{Στάδια}
+\subsection{Στάδια Συσταδοποίησης}
 
 \begin{frame}
-\frametitle{Στάδια}
-Τι είναι;
+\frametitle{Στάδια Συσταδοποίησης}
+\begin{itemize}
+  \item Αναπαράσταση των προτύπων και εξαγωγή των χαρακτηριστικών τους.\pause
+  \item Επιλογή  του  κατάλληλου  αλγορίθμου.\pause
+  \item Ομαδοποίηση των δεδομένων και αξιολόγηση των αποτελεσμάτων του αλγορίθμου.\pause
+  \item Αξιολόγηση του τελικού αποτελέσματος και ερμηνεία των αποτελεσμάτων.
+\end{itemize}
 \end{frame}
 
 \subsection{Αλγόριθμοι}
 
 \begin{frame}
 \frametitle{Αλγόριθμοι}
-Τι είναι;
+\begin{itemize}
+  \item Ιεραρχική Συσταδοποίηση\pause
+  \item Διαμεριστική Συσταδοποίηση\pause
+  \item Ασαφής Συσταδοποίηση
+\end{itemize}
 \end{frame}
 
 %------------------------------------------------
@@ -396,8 +420,11 @@ Fight!
 \section{Ομαδοποίηση}
 
 \begin{frame}
-\frametitle{Ορισμός}
-Τι είναι;
+\frametitle{Ορισμός Ομαδοποίησης}
+\begin{itemize}
+  \item Διαδικασία ενσωμάτωσης ενός νέου αντικειμένου σε μια ομάδα με τη βοήθεια της εκπαίδευσης.\pause
+  \item Προκύπτει από μια σειρά δεδομένων των οποίων ο διαχωρισμός είναι γνωστός αναφέρεται και ως αναγνώριση  προτύπων ή μάθηση υπό επίβλεψη.
+\end{itemize}
 \end{frame}
 
 %------------------------------------------------
@@ -406,7 +433,11 @@ Fight!
 
 \begin{frame}
 \frametitle{Παρουσίαση του προβλήματος}
-Τι είναι;
+\begin{itemize}
+  \item Δημιουργία ενός ασαφούς μοντέλου τύπου TSK για την ταξινόμηση κρίνων σε 3 κατηγορίες (setosa, versicolor και virginica).\pause
+  \item Χρήση μιας συλλογής 150 δειγμάτων.\pause
+  \item Τα 75 δείγματα θα χρησιμοποιηθούν για την εκπαίδευση και τα υπόλοιπα 75 για τον έλεγχο της ικανότητας ταξινόμησης του.
+\end{itemize}
 \end{frame}
 
 %------------------------------------------------
@@ -417,7 +448,7 @@ Fight!
 
 \begin{frame}
 \frametitle{Φόρτωμα Δεδομένων}
-Τι είναι;
+
 \end{frame}
 
 \subsection{Επίλυση με χρήση γραφικού περιβάλλοντος}
