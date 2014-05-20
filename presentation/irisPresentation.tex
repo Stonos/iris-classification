@@ -15,7 +15,7 @@
 %	PACKAGES AND THEMES
 %----------------------------------------------------------------------------------------
 
-\documentclass[xetex,mathserif,serif,14pt]{beamer}
+\documentclass[xetex,serif,mathserif,14pt]{beamer}
 
 \mode<presentation> {
 
@@ -109,6 +109,7 @@
 \usetikzlibrary{pgfplots.groupplots}
 \usepackage{xcolor} % For colors
 \usepackage{tikz}
+\usepackage{unicode-math}
 
 \pgfplotsset{compat=1.10}
 
@@ -133,6 +134,7 @@
 %\logo{\includegraphics[height=0.8cm]{images/itLogoWhiteBg.pdf}}
 \newfontfamily\greekfont[Script=Greek]{Linux Libertine O} % work-around για bug του polyglossia
 \setmainfont[Kerning=On,Mapping=tex-text]{Linux Libertine O} % roman font
+%\setmathfont{Latin Modern Math}
 
 \renewcommand{\arraystretch}{1.3} % μεγαλύτερο διάστημα ανάμεσα στις γραμμές πινάκων
 
@@ -249,7 +251,7 @@ bullets
 \begin{table}[h]
 \begin{tabular}{@{}ccc@{}}
 \toprule
-Λίγο ($f^{1.3}(x)$) & Πολύ ($f^2(x)$) & Περίπου ($\sqrt{f(x)}$) \\ \midrule
+Λίγο ($f^{1.3}\left(x\right)$) & Πολύ ($f^2\left(x\right)$) & Περίπου ($\sqrt{f\left(x\right)}$) \\ \midrule
 
 \begin{tikzpicture}
   \begin{axis}[scale = 0.3, axis lines=none]
@@ -285,7 +287,18 @@ bullets
 
 \begin{frame}
 \frametitle{Πράξεις Συνόλων}
-Τι είναι;
+Έστω οι συναρτήσεις συμμετοχής $\mu_A$ και $\mu_B$ που ορίζουν τα ασαφή σύνολα $A$ και $B$ αντίστοιχα. Οι πράξεις μεταξύ των συνόλων ορίζονται ως εξής:
+\begin{table}[h]
+\begin{small}
+\begin{tabular}{@{}ll@{}}
+    \toprule
+    Πράξη             & Τύπος\\ \midrule
+    Ένωση (OR)        & $\mu_{A \cup B}\left(x\right) = \max\left(\mu_{A}\left(x\right), \mu_{B}\left(x\right)\right)$ \\
+    Τομή (AND)        & $\mu_{A \cap B}\left(x\right) = \min\left(\mu_{A}\left(x\right), \mu_{B}\left(x\right)\right)$ \\
+    Συμπλήρωμα (NOT)  & $\mu'_{A}\left(x\right) = 1 - \mu_{A}\left(x\right)$ \\ \bottomrule
+\end{tabular}
+\end{small}
+\end{table}
 \end{frame}
 
 %------------------------------------------------
