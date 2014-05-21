@@ -110,7 +110,7 @@
 \usepackage{xcolor} % For colors
 \usepackage{tikz}
 \usepackage{unicode-math}
-\usepackage[framed,numbered]{matlab-prettifier}
+\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
 \pgfplotsset{compat=1.10}
 
 \setmainlanguage[numerals=arabic]{greek} % κύρια γλώσσα
@@ -464,9 +464,9 @@
 \subsection{Επίλυση με χρήση γραφικού περιβάλλοντος}
 
 \subsubsection{Fuzzy Toolbox}
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{Fuzzy Toolbox}
-εικόνα fuzzySugeno.png
+
 \end{frame}
 
 \subsubsection{Anfis Editor}
@@ -494,9 +494,25 @@
 \end{frame}
 
 \subsubsection{getIris.m}
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{getIris.m}
-Τι είναι;
+Συνάρτηση που επιστρέφει σε μεταβλητές τα δεδομένα των κρίνων
+\begin{lstlisting}
+function [iris, shuffledIris, irisTrain, irisTest, irisTrainIn, ...
+    irisTrainOut, irisTestIn, irisTestOut] = getIris(trainingSize)
+    
+    load iris.dat;
+    
+    shuffledIris = iris(randperm(size(iris, 1)), :);
+    irisTrain = shuffledIris(1:trainingSize, :);
+    irisTest = shuffledIris((trainingSize + 1):150, :);
+    
+    irisTrainIn = irisTrain(:, 1:4);
+    irisTrainOut = irisTrain(:, 5);
+    irisTestIn = irisTest(:, 1:4);
+    irisTestOut = irisTest(:, 5);
+end
+\end{lstlisting}
 \end{frame}
 
 %\subsubsection{setSeed.m}
@@ -506,9 +522,26 @@
 %\end{frame}
 
 \subsubsection{irisClustering.m}
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{irisClustering.m}
-Τι είναι;
+\small{Συνάρτηση που κάνει την κατηγοριοποίηση και επιστρέφει πόσα λάθη έγιναν} 
+\begin{lstlisting}
+function [badTrainFis, badCheckFis] = irisClustering ...
+    (seed, radius, squashFactor, acceptRatio, rejectRatio, epochs)
+
+    fis = genfis2(irisTrainIn, irisTrainOut, radius, ...
+        [min(iris); max(iris)], [squashFactor acceptRatio rejectRatio 0]);
+
+    [trainFis, trainError, stepSize, checkFis, checkError] = ...
+        anfis(irisTrain, fis, epochs, [], irisTest);
+        
+    trainFisOut = round(evalfis(irisTestIn, trainFis));
+    badTrainFis = size(find((trainFisOut == irisTestOut) == 0), 1);
+    
+    checkFisOut = round(evalfis(irisTestIn, checkFis));
+    badCheckFis = size(find((checkFisOut == irisTestOut) == 0), 1);
+end
+\end{lstlisting}
 \end{frame}
 
 \subsubsection{runTests.m}
