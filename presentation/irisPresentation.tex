@@ -185,7 +185,6 @@
   \item Κάθε νευρώνας είναι συνδεδεμένος με άλλους νευρώνες μέσω  καθοδηγούμενων  συνδέσεων.\pause
   \item  Η κάθε σύνδεση έχει το δικό της σχετικό βάρος.
 \end{itemize}
-
 \end{frame}
 
 %------------------------------------------------
@@ -448,7 +447,21 @@ Fight!
 
 \begin{frame}
 \frametitle{Φόρτωμα Δεδομένων}
-
+    //Φόρτωση συλλογής δεδομένων
+    
+    load iris.dat 
+    
+    //Ανακάτεμα  των δεδομένων
+    
+    shuffledIris = iris(randperm(size(iris,1)),:);
+    
+    //Διαχωρισμός δεδομένων εκπαίδευσης...
+    
+    forTraining = sIris(1:75,:);
+    
+    //... και δεδομένων ελέγχου
+    
+    forTesting = sIris(76,:);
 \end{frame}
 
 \subsection{Επίλυση με χρήση γραφικού περιβάλλοντος}
@@ -456,32 +469,31 @@ Fight!
 \subsubsection{Fuzzy Toolbox}
 \begin{frame}
 \frametitle{Fuzzy Toolbox}
-Τι είναι;
+εικόνα fuzzySugeno.png
 \end{frame}
 
 \subsubsection{Anfis Editor}
 \begin{frame}
 \frametitle{Anfis Editor}
-Τι είναι;
+εικόνα ANFIS.png
 \end{frame}
 
 \subsubsection{Grid Partition}
 \begin{frame}
 \frametitle{Grid Partition}
-Τι είναι;
+εικόνες AnfismodelGrid.png και gridParam.png
 \end{frame}
 
 \subsubsection{Subtractive Clustering}
 \begin{frame}
 \frametitle{Subtractive Clustering}
-Τι είναι;
+εικόνες AnfismodelSub.png και gridSub.png
 \end{frame}
-
 \subsection{Επίλυση με χρήση κώδικα}
 
 \begin{frame}
 \frametitle{Ανάγκη χρήσης κώδικα}
-ασδασδ
+
 \end{frame}
 
 \subsubsection{getIris.m}
