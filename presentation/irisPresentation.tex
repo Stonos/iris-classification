@@ -146,10 +146,10 @@
 \titlepage % Print the title page as the first slide
 \end{frame}
 
-\addtobeamertemplate{frametitle}{}{%
-\begin{tikzpicture}[remember picture,overlay]
-\node[anchor=north west,yshift=2pt] at (current page.north west) {\includegraphics[height=0.8cm]{images/itLogoWhiteBg.pdf}};
-\end{tikzpicture}}
+%\addtobeamertemplate{frametitle}{}{%
+%\begin{tikzpicture}[remember picture,overlay]
+%\node[anchor=north west,yshift=2pt] at (current page.north west) {\includegraphics[height=0.8cm]{images/itLogoWhiteBg.pdf}};
+%\end{tikzpicture}}
 
 %\begin{frame}
 %\frametitle{Overview} % Table of contents slide, comment this block out to remove it
@@ -179,7 +179,11 @@
 
 \begin{frame}
 \frametitle{Τι είναι ένα νευρωνικό δίκτυο;}
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north east,yshift=-83pt] at (current page.north east) {\includegraphics[height=2.7cm]{images/neuralnetwork.jpg}};
+\end{tikzpicture}
 \begin{itemize}
+\pause
   \item Είναι ένα σύστημα επεξεργασίας πληροφοριών.\pause
   \item Τα στοιχεία που αποτελούν ένα νευρωνικό δίκτυο ονομάζονται νευρώνες.\pause
   \item Κάθε νευρώνας είναι συνδεδεμένος με άλλους νευρώνες μέσω  καθοδηγούμενων  συνδέσεων.\pause
@@ -193,7 +197,11 @@
 
 \begin{frame}
 \frametitle{Πλεονεκτήματα χρήσης ν.δ.}
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north east,yshift=-140pt] at (current page.north east) {\includegraphics[height=3cm]{images/nn2.jpg}};
+\end{tikzpicture}
 \begin{itemize}
+\pause
   \item Παράλληλα κατανεμημένη δομή\pause
   \item Ικανότητα γενίκευσης\pause
   \item Προσαρμοστικότητα\pause
@@ -216,6 +224,8 @@
   \item Μια μεταβλητή μπορεί να ανήκει μερικώς σε ένα ή περισσότερα σύνολα
     \note[item]<2>{Παράδειγμα ύψους}
 \end{itemize}
+\centering
+\includegraphics[height=2cm]{images/fuzzy.jpg}
 \end{frame}
 
 %\subsection{Αποσαφοποίηση}
@@ -448,19 +458,19 @@ Fight!
 \begin{frame}
 \frametitle{Φόρτωμα Δεδομένων}
     //Φόρτωση συλλογής δεδομένων
-    
-    load iris.dat 
-    
+
+    load iris.dat
+
     //Ανακάτεμα  των δεδομένων
-    
+
     shuffledIris = iris(randperm(size(iris,1)),:);
-    
+
     //Διαχωρισμός δεδομένων εκπαίδευσης...
-    
+
     forTraining = sIris(1:75,:);
-    
+
     //... και δεδομένων ελέγχου
-    
+
     forTesting = sIris(76,:);
 \end{frame}
 
@@ -469,25 +479,32 @@ Fight!
 \subsubsection{Fuzzy Toolbox}
 \begin{frame}
 \frametitle{Fuzzy Toolbox}
-εικόνα fuzzySugeno.png
+\centering
+\includegraphics[height=5.5cm]{images/fuzzySugeno.png}
 \end{frame}
 
 \subsubsection{Anfis Editor}
 \begin{frame}
 \frametitle{Anfis Editor}
-εικόνα ANFIS.png
+\centering
+\includegraphics[height=5.5cm]{images/ANFIS.png}
 \end{frame}
 
 \subsubsection{Grid Partition}
 \begin{frame}
 \frametitle{Grid Partition}
-εικόνες AnfismodelGrid.png και gridParam.png
+\centering
+\includegraphics[height=4.5cm]{images/gridParam.png}
+\includegraphics[height=4.5cm]{images/anfisModelGrid.png}
+
 \end{frame}
 
 \subsubsection{Subtractive Clustering}
 \begin{frame}
 \frametitle{Subtractive Clustering}
-εικόνες AnfismodelSub.png και gridSub.png
+\centering
+\includegraphics[height=4.5cm]{images/subParam.png}
+\includegraphics[height=4.5cm]{images/anfisModelSub.png}
 \end{frame}
 \subsection{Επίλυση με χρήση κώδικα}
 
