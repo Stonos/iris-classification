@@ -179,7 +179,11 @@
 
 \begin{frame}
 \frametitle{Τι είναι ένα νευρωνικό δίκτυο;}
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north east,yshift=-83pt] at (current page.north east) {\includegraphics[height=2.7cm]{images/neuralnetwork.jpg}};
+\end{tikzpicture}
 \begin{itemize}
+\pause
   \item Είναι ένα σύστημα επεξεργασίας πληροφοριών.\pause
   \item Τα στοιχεία που αποτελούν ένα νευρωνικό δίκτυο ονομάζονται νευρώνες.\pause
   \item Κάθε νευρώνας είναι συνδεδεμένος με άλλους νευρώνες μέσω  καθοδηγούμενων  συνδέσεων.\pause
@@ -193,7 +197,11 @@
 
 \begin{frame}
 \frametitle{Πλεονεκτήματα χρήσης ν.δ.}
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north east,yshift=-140pt] at (current page.north east) {\includegraphics[height=3cm]{images/nn2.jpg}};
+\end{tikzpicture}
 \begin{itemize}
+\pause
   \item Παράλληλα κατανεμημένη δομή\pause
   \item Ικανότητα γενίκευσης\pause
   \item Προσαρμοστικότητα\pause
@@ -216,6 +224,8 @@
   \item Μια μεταβλητή μπορεί να ανήκει μερικώς σε ένα ή περισσότερα σύνολα
     \note[item]<2>{Παράδειγμα ύψους}
 \end{itemize}
+\centering
+\includegraphics[height=2cm]{images/fuzzy.jpg}
 \end{frame}
 
 %\subsection{Αποσαφοποίηση}
@@ -464,27 +474,34 @@
 \subsection{Επίλυση με χρήση γραφικού περιβάλλοντος}
 
 \subsubsection{Fuzzy Toolbox}
-\begin{frame}[fragile]
+\begin{frame}
 \frametitle{Fuzzy Toolbox}
-
+\centering
+\includegraphics[height=5.5cm]{images/fuzzySugeno.png}
 \end{frame}
 
 \subsubsection{Anfis Editor}
 \begin{frame}
 \frametitle{Anfis Editor}
-εικόνα ANFIS.png
+\centering
+\includegraphics[height=5.5cm]{images/ANFIS.png}
 \end{frame}
 
 \subsubsection{Grid Partition}
 \begin{frame}
 \frametitle{Grid Partition}
-εικόνες AnfismodelGrid.png και gridParam.png
+\centering
+\includegraphics[height=4.5cm]{images/gridParam.png}
+\includegraphics[height=4.5cm]{images/anfisModelGrid.png}
+
 \end{frame}
 
 \subsubsection{Subtractive Clustering}
 \begin{frame}
 \frametitle{Subtractive Clustering}
-εικόνες AnfismodelSub.png και gridSub.png
+\centering
+\includegraphics[height=4.5cm]{images/subParam.png}
+\includegraphics[height=4.5cm]{images/anfisModelSub.png}
 \end{frame}
 \subsection{Επίλυση με χρήση κώδικα}
 
@@ -500,13 +517,13 @@
 \begin{lstlisting}
 function [iris, shuffledIris, irisTrain, irisTest, irisTrainIn, ...
     irisTrainOut, irisTestIn, irisTestOut] = getIris(trainingSize)
-    
+
     load iris.dat;
-    
+
     shuffledIris = iris(randperm(size(iris, 1)), :);
     irisTrain = shuffledIris(1:trainingSize, :);
     irisTest = shuffledIris((trainingSize + 1):150, :);
-    
+
     irisTrainIn = irisTrain(:, 1:4);
     irisTrainOut = irisTrain(:, 5);
     irisTestIn = irisTest(:, 1:4);
@@ -524,7 +541,7 @@ end
 \subsubsection{irisClustering.m}
 \begin{frame}[fragile]
 \frametitle{irisClustering.m}
-\small{Συνάρτηση που κάνει την κατηγοριοποίηση και επιστρέφει πόσα λάθη έγιναν} 
+\small{Συνάρτηση που κάνει την κατηγοριοποίηση και επιστρέφει πόσα λάθη έγιναν}
 \begin{lstlisting}
 function [badTrainFis, badCheckFis] = irisClustering ...
     (seed, radius, squashFactor, acceptRatio, rejectRatio, epochs)
@@ -534,10 +551,10 @@ function [badTrainFis, badCheckFis] = irisClustering ...
 
     [trainFis, trainError, stepSize, checkFis, checkError] = ...
         anfis(irisTrain, fis, epochs, [], irisTest);
-        
+
     trainFisOut = round(evalfis(irisTestIn, trainFis));
     badTrainFis = size(find((trainFisOut == irisTestOut) == 0), 1);
-    
+
     checkFisOut = round(evalfis(irisTestIn, checkFis));
     badCheckFis = size(find((checkFisOut == irisTestOut) == 0), 1);
 end
