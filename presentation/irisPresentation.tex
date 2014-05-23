@@ -133,8 +133,8 @@
 \titlegraphic{\includegraphics[height=2cm]{images/irisSetosa.jpg} \includegraphics[height=2cm]{images/irisVersicolor.jpg} \includegraphics[height=2cm]{images/irisVirginica.jpg}}
 \date{23 Μαΐου 2014} % Date, can be changed to a custom date
 %\logo{\includegraphics[height=0.8cm]{images/itLogoWhiteBg.pdf}}
-\newfontfamily\greekfont[Script=Greek]{Linux Libertine G} % work-around για bug του polyglossia
-\setmainfont[Kerning=On,Mapping=tex-text]{Linux Libertine G} % roman font
+\newfontfamily\greekfont[Script=Greek]{Linux Libertine O} % work-around για bug του polyglossia
+\setmainfont[Kerning=On,Mapping=tex-text]{Linux Libertine O} % roman font
 %\setmathfont{Latin Modern Math}
 
 \renewcommand{\arraystretch}{1.3} % μεγαλύτερο διάστημα ανάμεσα στις γραμμές πινάκων
@@ -181,7 +181,7 @@
 \begin{frame}
 \frametitle{Τι είναι ένα νευρωνικό δίκτυο;}
 \begin{tikzpicture}[remember picture,overlay]
-\node[anchor=north east,yshift=-83pt] at (current page.north east) {\includegraphics[height=2.5cm]{images/neuralnetwork.jpg}};
+\node[anchor=north east,yshift=-75pt] at (current page.north east) {\includegraphics[height=2.3cm]{images/neuralnetwork.jpg}};
 \end{tikzpicture}
 \begin{itemize}
 \pause
@@ -397,6 +397,8 @@
   \item Διαδικασία ομαδοποίησης αντικειμένων με κάποιο κοινό χαρακτηριστικό.\pause
   \item Χαρακτηρίζεται και ως μάθηση χωρίς επίβλεψη.
 \end{itemize}
+\centering
+{\includegraphics[height=1.5cm]{images/kmeans.png}}
 \end{frame}
 
 \subsection{Στάδια Συσταδοποίησης}
@@ -415,6 +417,9 @@
 
 \begin{frame}
 \frametitle{Αλγόριθμοι}
+\centering
+{\includegraphics[height=2cm]{images/hierClust.png}}
+{\includegraphics[height=2cm]{images/hierClust2.png}}
 \begin{itemize}
   \item Ιεραρχική Συσταδοποίηση\pause
   \item Διαμεριστική Συσταδοποίηση\pause
