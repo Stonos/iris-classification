@@ -1,5 +1,5 @@
 # Neuro Fuzzy Classification of Iris Data Set
-This project is part of our Intelligent Systems course.
+This project was part of our Intelligent Systems course.
 
 The main purpose of the project is to solve a classification problem with Matlab, using the fuzzy toolbox and the takagi-sugeno inference system.
 We chose to solve the famous iris classification problem.
